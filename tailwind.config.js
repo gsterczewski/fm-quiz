@@ -10,9 +10,23 @@ export default {
         blueish: '#ABC1E1',
         navy: '#3B4D66',
         'dark-navy': '#313E51',
-        green: '#26D782',
-        red: '#EE5454',
-        purple: '#A729F5'
+        green: {
+          100: '#E0FDEF',
+          500: '#26D782'
+        },
+        red: {
+          100: '#FFF1E9',
+          500: '#EE5454'
+        },
+        purple: {
+          100: '#F6E7FF',
+          200: '#D394FA',
+          500: '#A729F5'
+        },
+        blue: {
+          100: '#EBF0FF',
+          500: '#306AFF'
+        }
       },
       backgroundImage: {
         mobile: "url('images/pattern-background-mobile-light.svg')",
@@ -25,4 +39,4 @@ export default {
     }
   },
   plugins: []
-}
+};
