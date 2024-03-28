@@ -5,11 +5,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'light-gray': '#F4F6FA',
-        'gray-navy': '#626C7F',
-        blueish: '#ABC1E1',
-        navy: '#3B4D66',
-        'dark-navy': '#313E51',
+        gray: {
+          100: '#F4F6FA',
+          500: '#626C7F'
+        },
         green: {
           100: '#E0FDEF',
           500: '#26D782'
@@ -25,7 +24,10 @@ export default {
         },
         blue: {
           100: '#EBF0FF',
-          500: '#306AFF'
+          200: '#ABC1E1',
+          500: '#306AFF',
+          800: '#3B4D66',
+          900: '#313E51'
         }
       },
       backgroundImage: {
