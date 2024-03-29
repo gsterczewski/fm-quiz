@@ -1,5 +1,5 @@
 import { createRouter, createMemoryHistory } from 'vue-router';
-import StartScreen from './views/StartScreen.vue';
+import StartScreen from '@views/StartScreen.vue';
 
 const routes = [
   {
