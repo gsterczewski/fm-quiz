@@ -23,7 +23,7 @@ const { quizzes } = useQuizzesStore();
       >
         <VueCard :text="quiz.title">
           <VueTile :color="quiz.color">
-            <img :src="quiz.icon" class="w-10" />
+            <img alt="" :src="quiz.icon" class="w-10" />
           </VueTile>
         </VueCard>
       </RouterLink>
