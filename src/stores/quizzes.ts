@@ -23,7 +23,7 @@ export const useQuizzesStore = defineStore('quizes', () => {
     color,
     key: title.toLowerCase()
   }));
-  const getQuizz = (title: string): Quiz | undefined => quizzes.find((quizz) => quizz.title === title);
+  const getQuizz = (key: string): Quiz | undefined => quizzes.find((quizz) => quizz.key === key);
 
   return { quizzes, getQuizz };
 });
