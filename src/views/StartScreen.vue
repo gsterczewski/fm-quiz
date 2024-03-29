@@ -14,7 +14,7 @@ const { quizzes } = useQuizzesStore();
       </h1>
       <CaptionText>Pick a subject to get started...</CaptionText>
     </div>
-    <div class="flex flex-col gap-3 md:gap-6 flex-1">
+    <nav class="flex flex-col gap-3 md:gap-6 flex-1">
       <RouterLink
         v-for="quiz in quizzes"
         :key="quiz.key"
@@ -27,7 +27,7 @@ const { quizzes } = useQuizzesStore();
           </VueTile>
         </VueCard>
       </RouterLink>
-    </div>
+    </nav>
   </div>
 </template>
 <style scoped>
