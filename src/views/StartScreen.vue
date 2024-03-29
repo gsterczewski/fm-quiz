@@ -19,7 +19,7 @@ const { quizzes } = useQuizzesStore();
         <RouterLink
           v-for="quiz in quizzes"
           :key="quiz.key"
-          :to="`/quizz?title=${quiz.key}`"
+          :to="`/quizz/${quiz.key}`"
           class="link border-2 border-transparent rounded-md outline-none transition-all"
         >
           <VueCard :text="quiz.title">
