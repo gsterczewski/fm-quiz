@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 const colorsMap = {
-  green: 'text-green-500 bg-green-100',
-  purple: 'text-purple-500 bg-purple-100',
-  blue: 'text-blue-500 bg-blue-100',
-  red: 'text-red-500 bg-red-100',
-  gray: 'text-gray-500 bg-gray-100'
+  green: 'bg-green-100',
+  purple: 'bg-purple-100',
+  blue: 'bg-blue-100',
+  red: 'bg-red-100',
+  gray: 'bg-gray-100'
 } as const;
 type TileProps = {
-  color?: keyof typeof colorsMap;
+  color?: string;
 };
 const props = withDefaults(defineProps<TileProps>(), {
   color: 'gray'
 });
-const colors = computed(() => colorsMap[props.color]);
+const background = computed(() => colorsMap[props.color as keyof typeof colorsMap] || colorsMap.gray);
 </script>
 <template>
-  <div class="w-12 flex items-center justify-center aspect-square rounded" :class="colors">
+  <div class="w-10 flex items-center justify-center aspect-square rounded" :class="background">
     <slot></slot>
   </div>
 </template>
