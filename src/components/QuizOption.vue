@@ -10,6 +10,7 @@ type QuizOptionProps = {
   hasSuccess?: boolean;
   hasError?: boolean;
   showSuccessIcon?: boolean;
+  disabled: boolean;
 };
 
 const model = defineModel();
@@ -18,7 +19,7 @@ defineProps<QuizOptionProps>();
 
 <template>
   <label class="radio" :class="{ 'radio--success': hasSuccess, 'radio--error': hasError }">
-    <input class="radio-input" type="radio" :name="inputName" :value="inputValue" v-model="model" :disabled="hasError || hasSuccess" />
+    <input class="radio-input" type="radio" :name="inputName" :value="inputValue" v-model="model" :disabled="disabled" />
     <VueCard class="radio-card">
       <VueTile class="radio-tile">
         <p>{{ answerIndex }}</p>
@@ -56,8 +57,11 @@ defineProps<QuizOptionProps>();
   background-color: var(--tile-bg);
   color: var(--tile-text);
 }
-
-.radio:has(:hover, :checked, .radio-input:focus) {
+.radio:has(:hover, .radio-input:focus) {
+  --tile-bg: var(--clr-purple-100);
+  --tile-text: var(--clr-purple-500);
+}
+.radio:not(.radio--success, .radio--error):has(:checked) {
   --card-border-clr: var(--clr-purple-500);
   --tile-bg: var(--clr-purple-500);
   --tile-text: white;
