@@ -3,6 +3,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --clr-gray-100: #f4f6fa;
+  --clr-gray-500: #626c7f;
+  --clr-green-100: #e0fdef;
+  --clr-green-500: #26d782;
+  --clr-red-100: #fff1e9;
+  --clr-red-500: #ee5454;
+  --clr-purple-100: #f6e7ff;
+  --clr-purple-200: #d394fa;
+  --clr-purple-500: #a729f5;
+  --clr-blue-100: #ebf0ff;
+  --clr-blue-200: #abc1e1;
+  --clr-blue-500: #306aff;
+  --clr-blue-800: #3b4d66;
+  --clr-blue-900: #313e51;
+}
+
 body {
   font-family: Rubik, sans-serif;
 }
