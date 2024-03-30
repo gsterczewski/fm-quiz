@@ -22,10 +22,11 @@ const { quizzes } = useQuizzesStore();
           :to="`/quizz/${quiz.key}`"
           class="link border-2 border-transparent rounded-md outline-none transition-all"
         >
-          <VueCard :text="quiz.title">
+          <VueCard>
             <VueTile :color="quiz.color">
               <img alt="" :src="quiz.icon" class="w-10" />
             </VueTile>
+            <p class="text-lg md:text-3xl font-medium text-blue-900">{{ quiz.title }}</p>
           </VueCard>
         </RouterLink>
       </nav>
