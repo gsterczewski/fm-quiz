@@ -2,13 +2,14 @@
 import CaptionText from '@components/CaptionText.vue';
 import VueCard from '@components/VueCard.vue';
 import VueTile from '@components/VueTile.vue';
+import VueLayout from '@components/VueLayout.vue';
 import { useQuizzesStore } from '@stores/quizzes';
 const { quizzes } = useQuizzesStore();
 </script>
 
 <template>
   <main>
-    <div class="max-w-6xl mx-auto px-6 md:px-16 flex flex-col gap-10 md:gap-16 xl:flex-row xl:gap-0 xl:px-0">
+    <VueLayout>
       <div class="flex-1">
         <h1 class="max-w-sm md:max-w-md font-light text-4xl md:text-6xl text-blue-900 mb-4">
           Welcome to the <span class="font-bold">Frontend Quiz!</span>
@@ -30,7 +31,7 @@ const { quizzes } = useQuizzesStore();
           </VueCard>
         </RouterLink>
       </nav>
-    </div>
+    </VueLayout>
   </main>
 </template>
 <style scoped>
