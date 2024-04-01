@@ -30,6 +30,9 @@ export default {
           900: '#313E51'
         }
       },
+      height: {
+        17: '4.5rem'
+      },
       backgroundImage: {
         mobile: "url('images/pattern-background-mobile-light.svg')",
         'mobile-dark': "url('images/pattern-background-mobile-dark.svg')",
