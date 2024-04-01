@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia';
 import quizzesData from '../data.json';
 
-type QuizQuestion = {
+export type QuizQuestion = {
   question: string;
   options: string[];
   answer: string;
 };
-type Quiz = {
+export type Quiz = {
   key: string;
   title: string;
   icon: string;
