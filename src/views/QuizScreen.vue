@@ -8,12 +8,14 @@ import VueLayout from '@components/VueLayout.vue';
 import CaptionText from '@components/CaptionText.vue';
 import HeroButton from '@components/HeroButton.vue';
 import QuizOption from '@components/QuizOption.vue';
+import VueTile from '@/components/VueTile.vue';
 
 const ANSWER_INDEXES = ['A', 'B', 'C', 'D'];
 const route = useRoute();
 const { getQuizz } = useQuizzesStore();
 const quizKey = route.params.key;
-const quiz = useQuiz(getQuizz(quizKey as string)!);
+const quizData = getQuizz(quizKey as string)!;
+const quiz = useQuiz(quizData);
 const selectedAnswer = ref('');
 
 const answerSubmitted = computed(
@@ -35,8 +37,16 @@ function handleClick() {
 const buttonLabel = computed(() => (quiz.isOver.value ? 'Show Results' : answerSubmitted.value ? 'Next Question' : 'Submit Answer'));
 </script>
 <template>
-  <main>
-    <VueLayout v-if="quiz">
+  <VueLayout v-if="quiz">
+    <template v-slot:page-title>
+      <div class="flex items-center gap-4 md:gap-6">
+        <VueTile class="w-10 aspect-square md:w-14" :color="quizData.color">
+          <img class="w-7 aspect-square md:w-10" :src="quizData.icon" />
+        </VueTile>
+        <p class="text-lg md:text-2xl text-blue-900 font-medium">{{ quizData.title }}</p>
+      </div>
+    </template>
+    <template v-slot:main-content>
       <div class="flex-1">
         <CaptionText class="mb-3 md:mb-7">{{ `Question ${quiz.questionIndex.value + 1} of ${quiz.questionsCount}` }}</CaptionText>
         <p class="xl:max-w-md text-blue-900 font-medium text-xl md:text-4xl">{{ quiz.question }}</p>
@@ -65,10 +75,10 @@ const buttonLabel = computed(() => (quiz.isOver.value ? 'Show Results' : answerS
           </p>
         </form>
       </div>
-    </VueLayout>
-    <div v-else>
-      <h1>Sorry something went wrong</h1>
-      <RouterLink to="/" class="hover:text-blue-400 hover:underline">Go back to home page</RouterLink>
-    </div>
-  </main>
+    </template>
+  </VueLayout>
+  <div v-else>
+    <h1>Sorry something went wrong</h1>
+    <RouterLink to="/" class="hover:text-blue-400 hover:underline">Go back to home page</RouterLink>
+  </div>
 </template>

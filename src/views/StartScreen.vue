@@ -8,8 +8,8 @@ const { quizzes } = useQuizzesStore();
 </script>
 
 <template>
-  <main>
-    <VueLayout>
+  <VueLayout>
+    <template v-slot:main-content>
       <div class="flex-1">
         <h1 class="max-w-sm md:max-w-md font-light text-4xl md:text-6xl text-blue-900 mb-4">
           Welcome to the <span class="font-bold">Frontend Quiz!</span>
@@ -31,8 +31,8 @@ const { quizzes } = useQuizzesStore();
           </VueCard>
         </RouterLink>
       </nav>
-    </VueLayout>
-  </main>
+    </template>
+  </VueLayout>
 </template>
 <style scoped>
 .link:hover,
