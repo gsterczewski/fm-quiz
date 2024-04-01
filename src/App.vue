@@ -1,10 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '@/stores/user';
+const { useDarkTheme } = storeToRefs(useUserStore());
+</script>
 
 <template>
-  <div>
-    <header class="h-20 mb-8 border-2 border-red-500"></header>
-    <main>
-      <router-view></router-view>
-    </main>
+  <div
+    class="h-full bg-mobile dark:bg-mobile-dark md:bg-tablet md:dark:bg-tablet-dark lg:bg-desktop lg:dark:bg-desktop-dark bg-no-repeat bg-cover bg-gray-100"
+    :class="{ dark: useDarkTheme }"
+  >
+    <router-view></router-view>
   </div>
 </template>
