@@ -1,5 +1,6 @@
 import { it, expect, describe, beforeEach } from 'vitest';
-import useQuiz, { type UseQuizComposable, QUIZ_ROUND_RESULTS } from '@/composables/useQuiz';
+import { type Quiz, QUIZ_ROUND_RESULTS } from '@/types';
+import useQuiz from '@/composables/useQuiz';
 
 const stubQuizData = {
   title: 'HTML',
@@ -73,7 +74,7 @@ const stubQuizData = {
     }
   ]
 };
-let quiz: UseQuizComposable;
+let quiz: Quiz;
 function callNextQuestionNTimes(n: number) {
   for (let i = 0; i < n; i++) {
     quiz.nextQuestion();

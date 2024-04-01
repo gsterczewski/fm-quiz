@@ -1,28 +1,7 @@
-import { ref, computed, type Ref, type ComputedRef } from 'vue';
-import { type Quiz, type QuizQuestion } from '@stores/quizzes';
+import { ref, computed, type Ref } from 'vue';
+import { type QuizData, type Quiz, type QuizRoundResult, QUIZ_ROUND_RESULTS } from '@/types';
 
-export const QUIZ_ROUND_RESULTS = {
-  NEW_QUESTION: 0,
-  NO_ANSWER: 1,
-  INCORRECT_ANSWER: 2,
-  CORRECT_ANSWER: 3
-} as const;
-
-type QuizRoundResult = (typeof QUIZ_ROUND_RESULTS)[keyof typeof QUIZ_ROUND_RESULTS];
-
-export type UseQuizComposable = {
-  question: ComputedRef<QuizQuestion['question']>;
-  answer: ComputedRef<string>;
-  questionIndex: Ref<number>;
-  result: Ref<QuizRoundResult>;
-  isOver: ComputedRef<boolean>;
-  questionsCount: number;
-  correctAnswersCount: Ref<number>;
-  possibleAnswers: ComputedRef<string[]>;
-  checkAnswer: (userAnswer: string) => void;
-  nextQuestion: () => void;
-};
-export default function useQuiz(quiz: Pick<Quiz, 'questions'>): UseQuizComposable {
+export default function useQuiz(quiz: Pick<QuizData, 'questions'>): Quiz {
   const questionsCount = quiz.questions.length;
   const currentQuestionIndex = ref(0);
   const answersCount = ref(0);
