@@ -8,7 +8,7 @@ import VueHeader from '@components/VueHeader.vue';
         <slot name="page-title"></slot>
       </VueHeader>
     </div>
-    <main class="flex flex-col gap-10 md:gap-16 xl:flex-row xl:gap-0 xl:px-0">
+    <main class="flex flex-col gap-10 md:gap-16 xl:flex-row xl:gap-8 xl:px-0">
       <slot name="main-content"></slot>
     </main>
   </div>
