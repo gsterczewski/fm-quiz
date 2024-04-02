@@ -9,18 +9,17 @@ withDefaults(defineProps<HeroButtonProps>(), {
 });
 </script>
 <template>
-  <RouterLink
-    v-if="asLink"
-    :to="to"
-    class="hero-button block text-center outline-none w-full text-lg md:text-3xl font-medium py-4 md:py-8 rounded-md bg-purple-500 text-white"
-  >
+  <RouterLink v-if="asLink" :to="to" class="hero-button block text-center">
     <slot></slot>
   </RouterLink>
-  <button v-else class="hero-button outline-none w-full text-lg md:text-3xl font-medium py-4 md:py-8 rounded-md bg-purple-500 text-white">
+  <button v-else class="hero-button">
     <slot></slot>
   </button>
 </template>
 <style scoped>
+.hero-button {
+  @apply outline-none w-full text-lg/none md:text-3xl/none font-medium py-5 md:py-8 rounded-3xl bg-purple-500 text-white;
+}
 .hero-button:hover,
 .hero-button:focus {
   @apply bg-purple-200;
