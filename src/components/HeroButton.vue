@@ -18,7 +18,7 @@ withDefaults(defineProps<HeroButtonProps>(), {
 </template>
 <style scoped>
 .hero-button {
-  @apply outline-none w-full text-lg/none md:text-3xl/none font-medium py-5 md:py-8 rounded-3xl bg-purple-500 text-white;
+  @apply outline-none w-full text-lg/none md:text-3xl/none font-medium py-5 md:py-8 rounded-xl md:rounded-3xl bg-purple-500 text-white;
 }
 .hero-button:hover,
 .hero-button:focus {
