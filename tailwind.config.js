@@ -33,6 +33,9 @@ export default {
       height: {
         17: '4.5rem'
       },
+      fontSize: {
+        '3xl': '1.75rem'
+      },
       backgroundImage: {
         mobile: "url('images/pattern-background-mobile-light.svg')",
         'mobile-dark': "url('images/pattern-background-mobile-dark.svg')",
