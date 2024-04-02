@@ -36,7 +36,7 @@ const quiz = useQuiz(quizData);
     <template v-slot:main-content v-else>
       <div class="flex-1">
         <CaptionText class="mb-3 md:mb-7">{{ `Question ${quiz.questionIndex.value + 1} of ${quiz.questionsCount}` }}</CaptionText>
-        <p class="xl:max-w-md text-blue-900 font-medium text-xl md:text-4xl">{{ quiz.question }}</p>
+        <p class="xl:max-w-md text-blue-900 font-medium text-xl/tight md:text-4xl/tight">{{ quiz.question }}</p>
       </div>
       <div class="flex-1">
         <QuizForm :quiz="quiz" />
