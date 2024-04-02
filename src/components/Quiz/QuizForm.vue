@@ -31,20 +31,21 @@ const buttonLabel = computed(() => (props.quiz.isOver.value ? 'Show Results' : a
 </script>
 <template>
   <form>
-    <QuizAnswer
-      v-for="(option, index) in quiz.possibleAnswers.value"
-      :key="index"
-      input-name="answer"
-      v-model="selectedAnswer"
-      :input-value="option"
-      :answer-index="ANSWER_INDEXES[index] || `${index + 1}`"
-      :answer="option"
-      :has-success="quiz.result.value === QUIZ_ROUND_RESULTS.CORRECT_ANSWER && selectedAnswer === option"
-      :has-error="quiz.result.value === QUIZ_ROUND_RESULTS.INCORRECT_ANSWER && selectedAnswer === option"
-      :show-success-icon="quiz.result.value === QUIZ_ROUND_RESULTS.INCORRECT_ANSWER && selectedAnswer !== option && option === quiz.answer.value"
-      :disabled="quiz.result.value === QUIZ_ROUND_RESULTS.CORRECT_ANSWER || quiz.result.value === QUIZ_ROUND_RESULTS.INCORRECT_ANSWER"
-    />
-
+    <div class="grid auto-rows-max gap-3 md:gap-6 mb-3 md:mb-8">
+      <QuizAnswer
+        v-for="(option, index) in quiz.possibleAnswers.value"
+        :key="index"
+        input-name="answer"
+        v-model="selectedAnswer"
+        :input-value="option"
+        :answer-index="ANSWER_INDEXES[index] || `${index + 1}`"
+        :answer="option"
+        :has-success="quiz.result.value === QUIZ_ROUND_RESULTS.CORRECT_ANSWER && selectedAnswer === option"
+        :has-error="quiz.result.value === QUIZ_ROUND_RESULTS.INCORRECT_ANSWER && selectedAnswer === option"
+        :show-success-icon="quiz.result.value === QUIZ_ROUND_RESULTS.INCORRECT_ANSWER && selectedAnswer !== option && option === quiz.answer.value"
+        :disabled="quiz.result.value === QUIZ_ROUND_RESULTS.CORRECT_ANSWER || quiz.result.value === QUIZ_ROUND_RESULTS.INCORRECT_ANSWER"
+      />
+    </div>
     <HeroButton type="submit" @click.prevent="handleClick">{{ buttonLabel }}</HeroButton>
     <p v-if="quiz.result.value === QUIZ_ROUND_RESULTS.NO_ANSWER" class="flex align-center justify-center text-red-500 mt-4 md:text-2xl">
       <img class="inline-block w-6 md:w-8 aspect-square mr-3" src="/icon-error.svg" /> <span>Please select and answer</span>
